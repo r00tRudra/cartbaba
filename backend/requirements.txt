@@ -1,14 +1,11 @@
-fastapi==0.104.1
-uvicorn==0.24.0.post1
+fastapi>=0.136.0
+uvicorn>=0.45.0
+pydantic>=2.13.3
+python-dotenv>=1.2.2
+requests>=2.33.1
 
-pydantic==2.7.4
-python-dotenv==1.0.0
-requests==2.31.0
-
-crewai==0.28.8
-
-groq==0.9.0
-
-sentence-transformers==2.2.2
-
-pymilvus==2.4.4
+crewai[litellm]>=1.6.1
+groq
+sentence-transformers
+numpy
+pymilvus

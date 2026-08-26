@@ -1,4 +1,5 @@
 from crewai import Agent
+from app.core.config import settings
 from app.core.llm import get_llm
 
 intent_agent = Agent(
@@ -25,6 +26,6 @@ intent_agent = Agent(
         '  "use_case": "running"\n'
         "}"
     ),
-    llm=get_llm("llama-3.3-70b-versatile"),
+    llm=get_llm(settings.INTENT_AGENT_MODEL),
     verbose=True
 )

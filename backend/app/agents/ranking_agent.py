@@ -1,7 +1,9 @@
 from sentence_transformers import SentenceTransformer
 import numpy as np
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+from app.core.config import settings
+
+model = SentenceTransformer(settings.EMBEDDING_MODEL)
 
 def rank_products(products, query):
     query_emb = model.encode(query)

@@ -1,4 +1,6 @@
+
 from crewai import Agent
+from app.core.config import settings
 from app.core.llm import get_llm
 
 final_agent = Agent(
@@ -16,6 +18,6 @@ final_agent = Agent(
         "Format:\n"
         "Top recommendations with short explanations"
     ),
-    llm=get_llm("llama-3.3-70b-versatile"),
+    llm=get_llm(settings.FINAL_AGENT_MODEL),
     verbose=True
 )
