@@ -1,7 +1,7 @@
 import requests
 import random
 
-def search_products(intent: dict):
+def search_products(intent: dict, limit: int = 3):
     query = " ".join(filter(None, [
         intent.get("category"),
         intent.get("gender"),
@@ -17,7 +17,7 @@ def search_products(intent: dict):
     # 1. TRY REAL API
     # =========================
     url = f"https://dummyjson.com/products/search?q={query}"
-    res = requests.get(url)
+    res = requests.get(url, timeout=10)
 
     products = []
 
@@ -38,6 +38,9 @@ def search_products(intent: dict):
 
             products.append(product)
 
+            if len(products) >= limit:
+                break
+
     # =========================
     # 2. FALLBACK (DYNAMIC FAKE DATA)
     # =========================
@@ -48,7 +51,7 @@ def search_products(intent: dict):
             "Premium", "Stylish", "Classic", "Trendy", "Elegant"
         ]
 
-        for i in range(5):
+        for i in range(limit):
             product = {
                 "name": f"{random.choice(base_names)} {query.title()} {i+1}",
                 "price": round(random.uniform(500, 5000), 2),

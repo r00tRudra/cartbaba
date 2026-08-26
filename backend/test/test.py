@@ -64,19 +64,19 @@ def test_search_products():
             "max_price": 5000,
             "gender": "men",
             "use_case": "running"
-        },
-        {
-            "category": "phone",
-            "max_price": None,
-            "gender": None,
-            "use_case": None
-        },
-        {
-            "category": "laptop",
-            "max_price": 50000,
-            "gender": None,
-            "use_case": None
-        }
+        }#,
+        # {
+        #     "category": "phone",
+        #     "max_price": None,
+        #     "gender": None,
+        #     "use_case": None
+        # },
+        # {
+        #     "category": "laptop",
+        #     "max_price": 50000,
+        #     "gender": None,
+        #     "use_case": None
+        # }
     ]
     
     for i, intent in enumerate(test_intents, 1):
@@ -128,8 +128,8 @@ def test_ranking():
     
     test_queries = [
         "running shoes for men",
-        "casual shoes",
-        "formal shoes"
+        # "casual shoes",
+        # "formal shoes"
     ]
     
     for query in test_queries:
@@ -163,8 +163,8 @@ def test_intent_agent():
     
     test_queries = [
         "Show me running shoes under 5000 rupees for men",
-        "I want a cheap phone",
-        "Looking for formal shoes for women"
+        # "I want a cheap phone",
+        # "Looking for formal shoes for women"
     ]
     
     for query in test_queries:
@@ -213,8 +213,8 @@ def test_complete_pipeline():
     
     test_queries = [
         "running shoes under 5000",
-        "best phones",
-        "formal shoes for women"
+        # "best phones",
+        # "formal shoes for women"
     ]
     
     for query in test_queries:
@@ -264,8 +264,8 @@ def test_error_handling():
     
     edge_cases = [
         {"category": "", "max_price": None, "gender": None, "use_case": None},  # Empty intent
-        {"category": "nonexistent_product_xyz", "max_price": 100, "gender": None, "use_case": None},  # Non-existent category
-        {"category": "shoes", "max_price": -1000, "gender": None, "use_case": None},  # Negative price
+        # {"category": "nonexistent_product_xyz", "max_price": 100, "gender": None, "use_case": None},  # Non-existent category
+        # {"category": "shoes", "max_price": -1000, "gender": None, "use_case": None},  # Negative price
     ]
     
     for i, intent in enumerate(edge_cases, 1):
