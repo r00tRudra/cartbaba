@@ -1,22 +1,236 @@
-body {
-  font-family: Arial;
-  text-align: center;
-  padding: 40px;
+:root {
+  --ink: #1b1b1f;
+  --bg: #faf9f6;
+  --marigold: #f5a623;
+  --marigold-dark: #d98c12;
+  --indigo: #26344d;
+  --chili: #d64545;
+  --card: #ffffff;
+  --line: #eae6dd;
+  --shadow: 0 6px 18px rgba(38, 52, 77, 0.08);
 }
 
-input {
-  width: 300px;
-  padding: 10px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+h1,
+h3 {
+  font-family: "Baloo 2", "Inter", Arial, sans-serif;
+}
+
+/* ---------- Signature: bazaar awning header ---------- */
+.awning {
+  position: relative;
+  padding: 0 0 34px;
+  background: var(--indigo);
+  overflow: hidden;
+}
+
+.awning__stripes {
+  height: 64px;
+  background: repeating-linear-gradient(
+    115deg,
+    var(--marigold) 0px,
+    var(--marigold) 26px,
+    var(--indigo) 26px,
+    var(--indigo) 52px
+  );
+}
+
+.awning__content {
+  text-align: center;
+  padding: 18px 20px 0;
+}
+
+.awning h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.awning .tagline {
+  margin: 6px 0 0;
+  color: #cdd6e4;
+  font-size: 0.95rem;
+}
+
+/* scalloped edge, like a shop awning */
+.awning::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  background-color: var(--bg);
+  background-image: radial-gradient(
+    circle at 10px 0,
+    transparent 10px,
+    var(--indigo) 10.5px
+  );
+  background-size: 20px 20px;
+  background-repeat: repeat-x;
+}
+
+/* ---------- Search ---------- */
+.search-box {
+  margin: 30px auto 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 16px;
+  flex-wrap: wrap;
+}
+
+#searchInput {
+  padding: 12px 16px;
+  width: min(360px, 80vw);
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  font-size: 0.95rem;
+  outline-offset: 2px;
+}
+
+#searchInput:focus-visible {
+  outline: 2px solid var(--indigo);
 }
 
 button {
-  padding: 10px 20px;
-  margin-left: 10px;
+  padding: 12px 22px;
+  border: none;
+  background: var(--marigold);
+  color: var(--indigo);
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: var(--marigold-dark);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--indigo);
+  outline-offset: 2px;
+}
+
+/* ---------- Loading ---------- */
+.loading {
+  text-align: center;
+  min-height: 24px;
+  margin-top: 10px;
+  color: var(--indigo);
+  font-weight: 600;
+}
+
+/* ---------- AI recommendation ---------- */
+#ai-output:empty {
+  display: none;
+}
+
+#ai-output {
+  margin: 22px auto;
+  width: min(640px, 90%);
+  background: var(--card);
+  border-left: 4px solid var(--marigold);
+  padding: 16px 18px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+#ai-output h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: var(--indigo);
+}
+
+#ai-output p {
+  margin: 0;
+  line-height: 1.5;
+  color: #3a3a3f;
+}
+
+/* ---------- Results grid ---------- */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  padding: 10px 24px 50px;
+  width: min(1100px, 92%);
+  margin: auto;
 }
 
 .card {
-  border: 1px solid #ddd;
-  margin: 10px auto;
-  padding: 10px;
-  width: 300px;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  text-align: left;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(38, 52, 77, 0.14);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #f0efe9;
+}
+
+.card h3 {
+  margin: 10px 0 4px;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--chili);
+  margin: 4px 0;
+}
+
+.rating {
+  color: var(--marigold-dark);
+  margin: 2px 0;
+  font-size: 0.9rem;
+}
+
+.score {
+  font-size: 0.75rem;
+  color: #9a9a9a;
+  margin: 4px 0 0;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #6b6b70;
+  padding: 30px 10px;
+}
+
+@media (max-width: 480px) {
+  .awning h1 {
+    font-size: 1.9rem;
+  }
 }

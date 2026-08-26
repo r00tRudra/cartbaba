@@ -1,7 +1,7 @@
 import requests
 import random
 
-def search_products(intent: dict, limit: int = 3):
+def search_products(intent: dict, limit: int = 33):
     query = " ".join(filter(None, [
         intent.get("category"),
         intent.get("gender"),
@@ -16,7 +16,7 @@ def search_products(intent: dict, limit: int = 3):
     # =========================
     # 1. TRY REAL API
     # =========================
-    url = f"https://dummyjson.com/products/search?q={query}"
+    url = f"https://affiliate-api.flipkart.net/affiliate/1.0/search.json?query={query}&resultCount={limit}"
     res = requests.get(url, timeout=10)
 
     products = []
