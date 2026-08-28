@@ -59,25 +59,273 @@ def test_search_products():
     print_section("TEST 1: Search Products Function")
     
     test_intents = [
-        {
-            "category": "shoes",
-            "max_price": 5000,
-            "gender": "men",
-            "use_case": "running"
-        }#,
-        # {
-        #     "category": "phone",
-        #     "max_price": None,
-        #     "gender": None,
-        #     "use_case": None
-        # },
-        # {
-        #     "category": "laptop",
-        #     "max_price": 50000,
-        #     "gender": None,
-        #     "use_case": None
-        # }
-    ]
+    # {
+    #     "category": "shoes",
+    #     "subcategory": "running shoes",
+    #     "product_type": "sports shoes",
+
+    #     "min_price": None,
+    #     "max_price": 5000,
+    #     "currency": "INR",
+
+    #     "gender": "men",
+    #     "age_group": "adult",
+    #     "size": "9",
+
+    #     "use_case": "running",
+    #     "activity": "running",
+
+    #     "brand": ["Nike", "Adidas"],
+    #     "exclude_brands": [],
+
+    #     "color": "black",
+    #     "material": None,
+
+    #     "storage": None,
+    #     "ram": None,
+    #     "processor": None,
+    #     "screen_size": None,
+    #     "battery_life": None,
+    #     "connectivity": None,
+
+    #     "weight_preference": "lightweight",
+
+    #     "rating_min": 4.0,
+    #     "review_count_min": None,
+    #     "durability": "high",
+    #     "warranty_required": False,
+
+    #     "style": "sporty",
+    #     "fit": "regular",
+    #     "cushioning": "high",
+    #     "waterproof": False,
+
+    #     "must_have": [
+    #         "running",
+    #         "lightweight",
+    #         "size 9"
+    #     ],
+
+    #     "nice_to_have": [
+    #         "Nike",
+    #         "Adidas",
+    #         "good cushioning"
+    #     ],
+
+    #     "avoid": [],
+
+    #     "keywords": [
+    #         "running shoes",
+    #         "men",
+    #         "lightweight",
+    #         "black",
+    #         "cushioning"
+    #     ],
+
+    #     "sort_by": "relevance"
+    # },
+
+    # {
+    #     "category": "phone",
+    #     "subcategory": "smartphone",
+    #     "product_type": "android phone",
+
+    #     "min_price": 15000,
+    #     "max_price": 30000,
+    #     "currency": "INR",
+
+    #     "gender": None,
+    #     "age_group": "adult",
+    #     "size": None,
+
+    #     "use_case": "daily use",
+    #     "activity": None,
+
+    #     "brand": ["Samsung", "OnePlus"],
+    #     "exclude_brands": [],
+
+    #     "color": None,
+    #     "material": None,
+
+    #     "storage": "256GB",
+    #     "ram": "8GB",
+    #     "processor": "Snapdragon",
+    #     "screen_size": "6.5 inches",
+    #     "battery_life": "long",
+    #     "connectivity": "5G",
+
+    #     "weight_preference": "lightweight",
+
+    #     "rating_min": 4.0,
+    #     "review_count_min": 500,
+    #     "durability": "high",
+    #     "warranty_required": True,
+
+    #     "style": None,
+    #     "fit": None,
+    #     "cushioning": None,
+    #     "waterproof": True,
+
+    #     "must_have": [
+    #         "5G",
+    #         "8GB RAM",
+    #         "256GB storage"
+    #     ],
+
+    #     "nice_to_have": [
+    #         "Samsung",
+    #         "OnePlus",
+    #         "good battery life"
+    #     ],
+
+    #     "avoid": [],
+
+    #     "keywords": [
+    #         "smartphone",
+    #         "5G",
+    #         "8GB RAM",
+    #         "256GB",
+    #         "good battery"
+    #     ],
+
+    #     "sort_by": "relevance"
+    # },
+
+    {
+        "category": "laptop",
+        "subcategory": "gaming laptop",
+        "product_type": "laptop",
+
+        "min_price": None,
+        "max_price": 50000,
+        "currency": "INR",
+
+        "gender": None,
+        "age_group": "adult",
+        "size": None,
+
+        "use_case": "gaming",
+        "activity": "gaming",
+
+        "brand": ["Lenovo", "ASUS", "HP"],
+        "exclude_brands": [],
+
+        "color": None,
+        "material": None,
+
+        "storage": "512GB SSD",
+        "ram": "16GB",
+        "processor": "Intel Core i5",
+        "screen_size": "15.6 inches",
+        "battery_life": "long",
+        "connectivity": "WiFi",
+
+        "weight_preference": "medium",
+
+        "rating_min": 4.0,
+        "review_count_min": None,
+        "durability": "high",
+        "warranty_required": True,
+
+        "style": "gaming",
+        "fit": None,
+        "cushioning": None,
+        "waterproof": None,
+
+        "must_have": [
+            "gaming",
+            "16GB RAM",
+            "512GB SSD"
+        ],
+
+        "nice_to_have": [
+            "dedicated GPU",
+            "high refresh rate",
+            "backlit keyboard"
+        ],
+
+        "avoid": [
+            "Chromebook"
+        ],
+
+        "keywords": [
+            "gaming laptop",
+            "16GB RAM",
+            "512GB SSD",
+            "Intel i5",
+            "dedicated GPU"
+        ],
+
+        "sort_by": "relevance"
+    },
+
+    {
+        "category": "headphones",
+        "subcategory": "wireless headphones",
+        "product_type": "over-ear headphones",
+
+        "min_price": None,
+        "max_price": 5000,
+        "currency": "INR",
+
+        "gender": "unisex",
+        "age_group": "adult",
+        "size": None,
+
+        "use_case": "music",
+        "activity": "listening",
+
+        "brand": ["Sony", "JBL", "Boat"],
+        "exclude_brands": [],
+
+        "color": "black",
+        "material": None,
+
+        "storage": None,
+        "ram": None,
+        "processor": None,
+        "screen_size": None,
+        "battery_life": "30+ hours",
+        "connectivity": "Bluetooth",
+
+        "weight_preference": "lightweight",
+
+        "rating_min": 4.0,
+        "review_count_min": 100,
+        "durability": "high",
+        "warranty_required": True,
+
+        "style": "minimalist",
+        "fit": "over-ear",
+        "cushioning": "high",
+        "waterproof": False,
+
+        "must_have": [
+            "wireless",
+            "Bluetooth",
+            "good battery life"
+        ],
+
+        "nice_to_have": [
+            "noise cancellation",
+            "Sony",
+            "JBL"
+        ],
+
+        "avoid": [
+            "wired headphones"
+        ],
+
+        "keywords": [
+            "wireless headphones",
+            "Bluetooth",
+            "noise cancellation",
+            "long battery"
+        ],
+
+        "sort_by": "rating"
+    }
+]
     
     for i, intent in enumerate(test_intents, 1):
         print(f"\n{Colors.BOLD}Test Case {i}:{Colors.ENDC}")
@@ -127,10 +375,10 @@ def test_ranking():
         return
     
     test_queries = [
-        "running shoes for men",
-        # "casual shoes",
-        # "formal shoes"
-    ]
+    "I need lightweight running shoes for men under ₹5000, preferably Nike or Adidas, size 9, with good cushioning and a rating above 4 stars",
+
+    "I need a gaming laptop under ₹50000 with 16GB RAM, 512GB SSD, Intel i5 processor, good battery life, and preferably Lenovo or ASUS"
+]
     
     for query in test_queries:
         print(f"\n{Colors.BOLD}Query: '{query}'{Colors.ENDC}")
@@ -162,10 +410,10 @@ def test_intent_agent():
     print_section("TEST 3: Intent Agent (LLM-based)")
     
     test_queries = [
-        "Show me running shoes under 5000 rupees for men",
-        # "I want a cheap phone",
-        # "Looking for formal shoes for women"
-    ]
+    "Find the best men's running shoes under ₹5000 in India with good cushioning, breathable material, and positive user reviews for daily jogging or gym use.",
+    "List affordable smartphones under ₹10,000 in India with at least 4GB RAM, 64GB storage, and a decent camera for everyday use.",
+    "Show me stylish formal shoes for women in black or brown, size 6-8, under ₹3000, with comfortable soles and genuine leather material."
+]
     
     for query in test_queries:
         print(f"\n{Colors.BOLD}Query: '{query}'{Colors.ENDC}")
@@ -212,9 +460,7 @@ def test_complete_pipeline():
     print_section("TEST 4: Complete Pipeline (Full run_cartbaba)")
     
     test_queries = [
-        "running shoes under 5000",
-        # "best phones",
-        # "formal shoes for women"
+        "I need lightweight running shoes for men under ₹5000, preferably Nike or Adidas, size 9, with good cushioning and a rating above 4 stars"
     ]
     
     for query in test_queries:
@@ -334,11 +580,11 @@ def main():
     print_info("Starting comprehensive test suite...\n")
     
     # Run all tests
-    test_search_products()
-    test_ranking()
+    # test_search_products()
+    # test_ranking()
     test_intent_agent()
-    test_complete_pipeline()
-    test_error_handling()
+    # test_complete_pipeline()
+    # test_error_handling()
     
     # Print summary
     print_summary()
